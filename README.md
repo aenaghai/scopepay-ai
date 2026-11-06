@@ -69,8 +69,6 @@ No key is necessary to try the UI, create projects, and run the **offline heuris
 - `POST /api/changes/{id}/paypal/capture` — capture and validate matching transaction
 - `GET /api/docs` — interactive API reference
 
-**Deadline:** November 12, 2026 at noon PST = November 13, 2026 at 1:30 AM IST.
-
 ## Constraints / security notes
 Data uses a local SQLite database (`scopepay.db`, gitignored). To reset the demo completely, stop the server and delete that file. `app.py` automatically seeds a fictional Northstar Studio sample on first run.
 
