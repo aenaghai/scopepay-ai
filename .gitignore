@@ -1,0 +1,8 @@
+.env
+scopepay.db
+*.db
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.DS_Store

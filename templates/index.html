@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ScopePay AI — Make every change count</title>
+  <meta name="description" content="ScopePay AI helps freelancers spot scope changes, agree on the work, and get paid with PayPal Sandbox." />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-symbol"><span>✳</span></div><span>scope<span class="brand-accent">pay</span><small>AI</small></span></div>
+      <div class="sidebar-label">WORKSPACE</div>
+      <a href="#workspace" class="nav-item active"><span class="nav-icon">▦</span> Overview <span class="nav-end">↗</span></a>
+      <a href="#analyzer" class="nav-item"><span class="nav-icon">✦</span> Scope analyzer</a>
+      <a href="#history" class="nav-item"><span class="nav-icon">▤</span> Change orders</a>
+      <div class="sidebar-label sidebar-label-two">YOUR PROJECTS</div>
+      <div id="sidebar-projects" class="project-list"></div>
+      <button id="new-project" class="sidebar-create"><span>＋</span> New project</button>
+      <div class="sidebar-spacer"></div>
+      <div class="environment-card">
+        <div class="eyebrow"><span class="status-dot"></span> BUILD ENVIRONMENT</div>
+        <div class="environment-title">Your integration status</div>
+        <div class="env-row"><span>Gemini analysis</span><b id="ai-badge">Checking…</b></div>
+        <div class="env-row"><span>PayPal checkout</span><b id="paypal-badge">Checking…</b></div>
+        <a href="https://developer.paypal.com/dashboard/applications/sandbox" target="_blank" rel="noopener">Configure integrations ↗</a>
+      </div>
+      <div class="profile"><span class="avatar">S</span><span><b>ScopePay workspace</b><small>Local hackathon build · v0.1</small></span><span class="profile-gear">⚙</span></div>
+    </aside>
+
+    <main class="main" id="workspace">
+      <header class="topbar">
+        <div class="crumb">Workspace <span>/</span> <b>Overview</b></div>
+        <div class="topbar-right"><span class="top-badge"><span class="status-dot"></span> SANDBOX ONLY</span><span class="top-user">SP</span></div>
+      </header>
+      <div class="main-content">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="pill-mini"><span>✳</span> THE FREELANCER'S FAIR-WORK COPILOT</div>
+            <h1>Great work deserves<br /><em>clear boundaries.</em></h1>
+            <p>Catch scope creep, turn it into a clear agreement, and make getting paid the natural next step.</p>
+            <a class="hero-action" href="#analyzer">Analyze a client request <span>↗</span></a>
+          </div>
+          <div class="hero-graphic" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="graphic-note note-1"><span>✳</span><div><b>New request</b><small>Just one small change...</small></div></div>
+            <div class="graphic-note note-2"><span class="check-circle">✓</span><div><b>Scope protected</b><small>Clarity before checkout</small></div></div>
+            <div class="graphic-core">↗</div>
+          </div>
+        </section>
+        <section class="metrics">
+          <div class="metric"><span>ACTIVE PROJECTS</span><div><b id="metric-projects">1</b><small>in this workspace</small></div><div class="metric-icon">◫</div></div>
+          <div class="metric"><span>CHANGE ORDERS</span><div><b id="metric-changes">0</b><small>tracked & organized</small></div><div class="metric-icon">✧</div></div>
+          <div class="metric"><span>SANDBOX PAYMENTS</span><div><b id="metric-paid">$0</b><small>test transactions only</small></div><div class="metric-icon">↗</div></div>
+        </section>
+        <div class="section-head" id="analyzer"><div><span class="micro-heading">01 / YOUR WORKFLOW</span><h2>Scope intelligence studio</h2></div><span class="section-caption">From vague request to confident next step</span></div>
+        <section class="work-grid">
+          <div class="work-panel">
+            <div class="panel-heading"><div class="panel-heading-icon">⌘</div><div><h3>Analyze a change request</h3><p>Compare your agreement with what the client is asking now.</p></div></div>
+            <div class="field-title-row"><label for="project-select">SELECT AGREEMENT</label><span class="field-help">Step 1 of 2</span></div>
+            <select id="project-select" class="input select"></select>
+            <div class="original-scope-box"><span class="original-label"><span>◉</span> ORIGINAL AGREEMENT</span><p id="scope-preview">Loading your agreement...</p><button id="read-full-scope" class="plain-link">View full scope ↗</button></div>
+            <div class="field-title-row"><label for="client-request">NEW CLIENT REQUEST</label><span class="field-help">Step 2 of 2</span></div>
+            <textarea id="client-request" class="input request-text" placeholder="Paste the client’s message here…"></textarea>
+            <button id="sample-request" class="sample-link">✦ Try a realistic example</button>
+            <button id="analyze-button" class="primary-btn"><span id="analyze-button-text">✦ Analyze scope change</span><span class="arrow">→</span></button>
+            <div class="form-foot">🔒 Your brief is stored locally. When Gemini is enabled, analysis sends the text to its API.</div>
+          </div>
+          <div class="result-panel" id="result-panel">
+            <div class="result-top"><span class="micro-heading">02 / AI INTELLIGENCE</span><span id="engine-label" class="engine-label">● Engine ready</span></div>
+            <div id="result-body" class="empty-result">
+              <div class="empty-illustration"><div class="empty-ring"><span>✦</span></div><span class="spark spark1">✧</span><span class="spark spark2">✴</span></div>
+              <h3>Clarity starts here.</h3>
+              <p>Paste a client request and hit analyze. We'll turn the messy “can you also…” into a structured next step.</p>
+              <div class="empty-footer"><span>✳</span> Human-approved. Payment-ready.</div>
+            </div>
+          </div>
+        </section>
+        <section class="bottom-grid" id="history">
+          <div class="history-card"><div class="bottom-header"><div><span class="micro-heading">03 / PAPER TRAIL</span><h3>Recent change orders</h3></div><span id="history-count" class="count-pill">0 items</span></div><div id="history-items" class="history-items"><div class="history-empty">No change orders yet. Your first analysis will appear here.</div></div></div>
+          <div class="process-card"><span class="micro-heading">HOW IT WORKS</span><h3>Less awkward conversations.<br />More intentional work.</h3><div class="process-item"><b>01</b><span>Define the original agreement</span></div><div class="process-item"><b>02</b><span>Detect what actually changed</span></div><div class="process-item"><b>03</b><span>Approve a clear, editable quote</span></div><div class="process-item"><b>04</b><span>Capture a verified test payment</span></div></div>
+        </section>
+        <footer>Made for the people behind the projects. <span>ScopePay AI · Hackathon prototype · Sandbox payments only</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="project-dialog" class="modal"><form id="project-form"><div class="modal-header"><div><span class="micro-heading">NEW AGREEMENT</span><h2>Create a project</h2></div><button type="button" id="close-dialog" class="icon-btn">✕</button></div><p>Describe the original scope clearly—this becomes the reference point for AI analysis.</p><label>Project name<input class="input" name="title" minlength="3" maxlength="100" required placeholder="e.g. Acme · Website redesign" /></label><label>Client name<input class="input" name="client_name" minlength="2" maxlength="100" required placeholder="e.g. Acme Studio" /></label><label>Original agreement<textarea class="input" name="original_scope" minlength="25" maxlength="10000" required rows="7" placeholder="Describe deliverables, exclusions, revisions, and boundaries..."></textarea></label><div class="modal-actions"><button type="button" id="cancel-dialog" class="light-btn">Cancel</button><button type="submit" class="primary-btn">Create project →</button></div></form></dialog>
+  <dialog id="scope-dialog" class="modal"><div class="modal-header"><h2>Original agreement</h2><button type="button" id="close-scope" class="icon-btn">✕</button></div><p id="full-scope" class="scope-full"></p></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
