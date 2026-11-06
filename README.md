@@ -57,19 +57,6 @@ No key is necessary to try the UI, create projects, and run the **offline heuris
 5. Click the PayPal button. Log in using the **Sandbox personal buyer test account**, and approve the sandbox purchase.
 6. The app calls the PayPal Orders v2 **capture** endpoint on the server and marks the change `PAID` *only if* the returned capture ID, completed status, USD currency, and amount match the approved order.
 
-**Never paste your secret into screenshots, prompts, or your GitHub repo.** `.env` is ignored by Git.
-
-## Demo script (under 3 minutes)
-
-- **0:00–0:20:** “A freelancer builds a landing page. The client asks for a booking system ‘as one small change.’”
-- **0:20–0:45:** Show the original Northstar Studio agreement and paste the sample request.
-- **0:45–1:15:** Click **Analyze**. Show Gemini's specific out-of-scope explanation, comparison, and drafted reply. Mention that AI makes a suggestion and a human decides.
-- **1:15–1:35:** Adjust the quote price and approve the change order.
-- **1:35–2:20:** Open PayPal Sandbox, approve with a sandbox buyer, and show the verified capture ID and amount on return.
-- **2:20–2:45:** Show the change order in Recent History. Close: “ScopePay connects the reasoning around scope changes to a verified payment.”
-
-Record actual functioning screens. Do not pretend the offline preview is live AI or a local status is a PayPal payment.
-
 ## Routes
 
 - `GET /api/status` — enabled integrations
@@ -82,23 +69,9 @@ Record actual functioning screens. Do not pretend the offline preview is live AI
 - `POST /api/changes/{id}/paypal/capture` — capture and validate matching transaction
 - `GET /api/docs` — interactive API reference
 
-## Judging / submission checklist
-
-- [ ] Turn on **real Gemini** and capture proof in your demo.
-- [ ] Set up **PayPal Sandbox** and complete a successful transaction.
-- [ ] Run automated API tests (`python -m pytest -q`, after installing pytest).
-- [ ] Make this repository public on GitHub under the included MIT License.
-- [ ] Add real screenshots from the running app.
-- [ ] Upload an **unlisted or public** YouTube screen recording **under three minutes**.
-- [ ] Put the repository URL and YouTube URL into Devpost.
-- [ ] Update the Devpost project story and tags to exactly match what you built (`FastAPI`, not `Flask`).
-
 **Deadline:** November 12, 2026 at noon PST = November 13, 2026 at 1:30 AM IST.
 
 ## Constraints / security notes
-
-This is a **local hackathon prototype**, not a multi-tenant SaaS. There is no login, CSRF protection, webhook processing, rate limiting, hosted access control, or production-grade idempotency/reconciliation. **Do not deploy publicly without adding authentication, HTTPS, owner authorization, and production security review.** No live PayPal payments are supported.
-
 Data uses a local SQLite database (`scopepay.db`, gitignored). To reset the demo completely, stop the server and delete that file. `app.py` automatically seeds a fictional Northstar Studio sample on first run.
 
-Built using FastAPI, SQLite, JavaScript, PayPal Sandbox Orders v2, and optional Gemini API. No Node toolchain or Raspberry Pi required.
+Built using FastAPI, SQLite, JavaScript, PayPal Sandbox Orders v2, and Gemini API. 
